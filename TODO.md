@@ -16,7 +16,8 @@ to
 c = d
 a = b
 ```
-we need to know when two are independent
+we need to know when two statements are independent
+
 function definitions can be reordered too
 
 ## conditional renaming (a<=b <-> not a>b)
