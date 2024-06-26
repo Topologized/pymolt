@@ -6,7 +6,7 @@ import random
 # Function Overloading not supported
 
 
-def swizzle_list(a, b: list[int]):
+def swizzle_comma_str(a, b: list[int]):
     return ", ".join([str(a[i]) for i in b])
 
 def swizzle_function_arguments(defnode: DefNode, module: RedBaron):
@@ -40,7 +40,7 @@ def swizzle_function_arguments(defnode: DefNode, module: RedBaron):
     swizzle = list(range(n_args))
     random.shuffle(swizzle)
 
-    defnode.arguments = swizzle_list(defnode.arguments, swizzle)
+    defnode.arguments = swizzle_comma_str(defnode.arguments, swizzle)
 
     possible_call: redbaron.CallNode
     # we want to modify in-place, I want to be safe
@@ -56,7 +56,7 @@ def swizzle_function_arguments(defnode: DefNode, module: RedBaron):
 
         # if no keyword arguments, shuffle in order
         if not has_keyword:
-            l = swizzle_list(possible_call.value, swizzle)
+            l = swizzle_comma_str(possible_call.value, swizzle)
             possible_call.value = l
         else: 
             # we have keywords, force keyword and give any order
