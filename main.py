@@ -85,7 +85,7 @@ def operator_commute(bnode: BinaryOperatorNode):
             pass
 
 if __name__ == "__main__":
-    with open("test\\3420.py", "r") as f:
+    with open("test/3420.py", "r") as f:
         src = f.read()
 
     module = RedBaron(src)
