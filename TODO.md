@@ -1,12 +1,15 @@
 # Priority is higher on top
 
-## variable, parameter, function renaming
+## variable, parameter, function renaming (easy~medium)
 Use a thesaurus. Also you can change some variables into one/two letters.
 
-## remove comments
+## remove comments (easy)
 this is very easy
 
-## statement reordering
+I think redbaron may not even support comments
+idk
+
+## statement reordering (hard)
 ```py
 a = b
 c = d
@@ -23,7 +26,7 @@ function definitions can be reordered too
 ## conditional renaming (a<=b <-> not a>b)
 `A (< > <= >= == !=) B <-> not A (>= <= > < != ==) B`
 
-## if Reordering
+## if Reordering (medium)
 ```py
 if (cond):
   do this
@@ -40,14 +43,14 @@ else:
 
 Generalize if possible
 
-## Operator reordering
+## Operator reordering (medium~hard)
 ``a + b, a * b``
 to
 ``b + a, b * a``
 
 (only if at least one is integer / float)
 
-## variable shifting (very hard to detect)
+## variable shifting (medium~hard)
 ```py
 for i in range(a):
   do something with i
@@ -63,7 +66,7 @@ for i in range(-1, a - 1):
   do something with i + 1
 ```
 
-## comprehension -> array
+## comprehension -> array (medium)
 ```py
 something(a(x) for x in t)
 ```

@@ -1,5 +1,6 @@
 from redbaron import RedBaron, DefNode, NameNode, BinaryOperatorNode, DictNode
-from redbaron.base_nodes import CommaProxyList
+from redbaron.base_nodes import CommaProxyList, Node
+from typing import Optional, Union
 import redbaron
 import random
 
@@ -36,7 +37,7 @@ def swizzle_function_arguments(defnode: DefNode, module: RedBaron):
     if n_args == 0:
         return
 
-    arg_names = [ arg.target.value for arg in defnode.arguments ]
+    arg_names = [args.target.value for args in defnode.arguments]
     swizzle = list(range(n_args))
     random.shuffle(swizzle)
 
@@ -58,7 +59,7 @@ def swizzle_function_arguments(defnode: DefNode, module: RedBaron):
         if not has_keyword:
             l = swizzle_comma_str(possible_call.value, swizzle)
             possible_call.value = l
-        else: 
+        else:
             # we have keywords, force keyword and give any order
             # Note that pos args can't go after keyword args
             for i, arg in enumerate(possible_call):
@@ -84,7 +85,7 @@ def operator_commute(bnode: BinaryOperatorNode):
             pass
 
 if __name__ == "__main__":
-    with open("3420.py", "r") as f:
+    with open("test\\3420.py", "r") as f:
         src = f.read()
 
     module = RedBaron(src)

@@ -10,4 +10,4 @@ def recur(n, a, b, c):
     recur(n - 1, c, b, a)
 
 N = int(input())
-recur(N, 0, 2, 1)
+recur(N, 0, 2, c=1)
